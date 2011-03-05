@@ -1,5 +1,5 @@
-var h = window.innerHeight, //update on deviceoritentation event?
-	w = window.innerWidth;
+var h = 500,
+	w = 500;
 
 /* http://paulirish.com/2011/requestanimationframe-for-smart-animating/ */
 window.requestAnimFrame = (function () {
@@ -56,9 +56,7 @@ Ball.prototype.accelerate = function (acc) {
 
 Ball.prototype.draw = function(context) {
 	context.fillStyle = this.backgroundColor;
-	context.arc(this.x, this.y, this.radius + 20, 0, Math.PI * 2);
-	context.closePath();
-	context.fill();
+	context.fillRect(0, 0, w, h);
 
 	context.fillStyle = this.color;
 	context.beginPath();
@@ -68,8 +66,6 @@ Ball.prototype.draw = function(context) {
 };
 
 var canvas = document.getElementById("field");
-canvas.width = w;
-canvas.height = h;
 var context = canvas.getContext("2d");
 var ball = new Ball({x: 100, y: 100, radius: 15});
 
