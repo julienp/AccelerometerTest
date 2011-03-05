@@ -13,7 +13,7 @@ window.requestAnimFrame = (function () {
 		  };
 })();
 
-function Ball (options) {
+function Ball(options) {
 	this.x = options.x || 100;
 	this.y = options.y || 100;
 	this.vx = options.vx || 0;
@@ -24,8 +24,8 @@ function Ball (options) {
 }
 
 Ball.prototype.accelerate = function (acc) {
-	var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
-	if ( landscapeOrientation) {
+	var landscapeOrientation = window.innerWidth / window.innerHeight > 1;
+	if (landscapeOrientation) {
 		this.vx += acc.y;
 		this.vy += acc.x;
 	} else {
@@ -54,7 +54,7 @@ Ball.prototype.accelerate = function (acc) {
 	}
 };
 
-Ball.prototype.draw = function(context) {
+Ball.prototype.draw = function (context) {
 	context.fillStyle = this.backgroundColor;
 	context.fillRect(0, 0, w, h);
 
