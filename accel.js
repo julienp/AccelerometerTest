@@ -24,9 +24,14 @@ function Ball (options) {
 }
 
 Ball.prototype.accelerate = function (acc) {
-	//TODO: need to take deviceorientation into account for landscape
-	this.vx += acc.x;
-	this.vy -= acc.y;
+	var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
+	if ( landscapeOrientation) {
+		this.vx += acc.y;
+		this.vy += acc.x;
+	} else {
+		this.vx += acc.x;
+		this.vy -= acc.y;
+	}
 
 	this.x += this.vx * 0.1;
 	this.y += this.vy * 0.1;
